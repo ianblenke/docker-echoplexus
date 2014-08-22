@@ -1,0 +1,29 @@
+#!/bin/bash
+set -e
+
+# Initialize variables used by Echoplexus at installation time
+
+# Shallow clone the huginn project repo
+git clone --depth 1 https://github.com/qq99/echoplexus /app
+
+cd /app
+
+# add a echoplexus group and user
+adduser --group echoplexus
+adduser --disabled-login --ingroup echoplexus --gecos 'EchoPlexus' --no-create-home --home /app echoplexus
+adduser echoplexus sudo
+passwd -d echoplexus
+
+# Change the ownership to echoplexus
+chown -R echoplexus:echoplexus /app
+
+sudo -u echoplexus -EH npm install
+echo n | sudo -u echoplexus -EH bower install
+sudo -u echoplexus -EH grunt build
+
+# silence setlocale message (THANKS DEBIAN!)
+cat > /etc/default/locale <<EOF
+LC_ALL=en_US.UTF-8
+LANG=en_US.UTF-8
+EOF
+
