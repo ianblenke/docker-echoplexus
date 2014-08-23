@@ -49,7 +49,7 @@ exports.Configuration =
 
   server_hosted_file_transfer:
     enabled: ${SERVER_HOSTED_FILE_TRANSFER_ENABLED:-false}
-    size_limit: "${SERVER_HOSTED_FILE_TRANSFER:-${CLIENT_MAX_BODY_SIZE:-10mb}}" # nginx user? make sure this matches your nginx configuration: e.g., look for line `client_max_body_size 10M;`
+    size_limit: "${SERVER_HOSTED_FILE_TRANSFER:-${CLIENT_MAX_BODY_SIZE:-10mb}}" # nginx user? make sure this matches your nginx configuration: e.g., look for line \`client_max_body_size 10M;\`
 
   DEBUG: ${DEBUG:-false}
 EOF
