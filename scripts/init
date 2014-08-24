@@ -158,14 +158,14 @@ stderr_logfile=/var/log/supervisor/%(program_name)s.log
 EOF
   supervisorctl reload
 
-  # fix permissions and ownership of /var/lib/mysql
+  # fix permissions and ownership of /var/lib/redis
   chown -R redis:redis /var/lib/redis
   chmod 755 /var/lib/redis
 
   echo "Starting redis server..."
   supervisorctl start redis >/dev/null
 
-  # wait for mysql server to start (max 120 seconds)
+  # wait for redis server to start (max 120 seconds)
   timeout=120
   while redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} ${DATABASE_PASSWORD:+-a $DATABASE_PASSWORD} info 2>&1 | grep -q ERR
   do
