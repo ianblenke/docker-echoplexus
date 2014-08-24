@@ -3,7 +3,7 @@ EchoPlexus for docker with multiple container linkage
 
 This image runs a linkable [EchoPlexus](http://echoplex.us) instance.
 
-There is an automated build repository on docker hub for [ianblenke/echoplexus](https://registry.hub.docker.com/builds/github/ianblenke/echoplexus/).
+There is an automated build repository on docker hub for [ianblenke/echoplexus](https://registry.hub.docker.com/u/ianblenke/echoplexus/).
 
 This project was roughly based on the [sameersbn/gitlab](https://registry.hub.docker.com/u/sameersbn/gitlab/) project.
 
