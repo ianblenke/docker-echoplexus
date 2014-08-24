@@ -3,7 +3,7 @@ set -e
 
 # Initialize variables used by Echoplexus at installation time
 
-# Shallow clone the huginn project repo
+# Shallow clone the echoplexus project repo
 git clone --depth 1 https://github.com/qq99/echoplexus /app
 
 cd /app
